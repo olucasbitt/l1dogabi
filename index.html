@@ -4652,26 +4652,26 @@ async function confirmarReserva(
   try {
 
     const resposta =
-      await fetch(
-        RESERVA_API_URL,
-        {
-          method: 'POST',
+  await fetch(
+    RESERVA_API_URL,
+    {
+      method: 'POST',
 
-          headers: {
-            'Content-Type':
-              'application/json'
-          },
+      headers: {
+        'Content-Type':
+          'text/plain;charset=utf-8'
+      },
 
-          body:
-            JSON.stringify(
-              {
-                numeros,
-                nome,
-                telefone
-              }
-            )
-        }
-      );
+      body:
+        JSON.stringify(
+          {
+            numeros,
+            nome,
+            telefone
+          }
+        )
+    }
+  );
 
 
     if (
