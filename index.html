@@ -4794,56 +4794,20 @@ function abrirWhatsApp(
     numeros.length *
     VALOR_NUMERO;
 
-
-  const emojiOla =
-    String.fromCodePoint(0x1F44B);
-
-  const emojiIngresso =
-    String.fromCodePoint(0x1F39F, 0xFE0F);
-
-  const emojiDinheiro =
-    String.fromCodePoint(0x1F4B0);
-
-  const emojiPessoa =
-    String.fromCodePoint(0x1F464);
-
-  const emojiTelefone =
-    String.fromCodePoint(0x1F4F1);
-
-
   const mensagem =
-    `Oi Gabriel! ${emojiOla}\n\n` +
+    `Oi Gabriel!\n\n` +
 
     `Acabei de reservar os números da rifa do Gabriel:\n\n` +
 
-    `${emojiIngresso} Números: ${numeros.join(', ')}\n` +
+    `Números: ${numeros.join(', ')}\n` +
 
-    `${emojiDinheiro} Total: ${formatarMoeda(total)}\n` +
+    `Total: ${formatarMoeda(total)}\n` +
 
-    `${emojiPessoa} Nome: ${nome}\n` +
+    `Nome: ${nome}\n` +
 
-    `${emojiTelefone} WhatsApp: ${telefone}\n\n` +
+    `WhatsApp: ${telefone}\n\n` +
 
     `Vou enviar o comprovante do Pix por aqui.`;
-
-
-  console.log('Mensagem WhatsApp:', mensagem);
-
-  console.log(
-    'Bytes/código dos emojis:',
-    [
-      emojiOla,
-      emojiIngresso,
-      emojiDinheiro,
-      emojiPessoa,
-      emojiTelefone
-    ].map(
-      emoji => [...emoji].map(
-        caractere => caractere.codePointAt(0).toString(16)
-      )
-    )
-  );
-
 
   window.open(
     `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensagem)}`,
