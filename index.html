@@ -1473,6 +1473,104 @@
       1px solid rgba(47,128,237,0.18);
     color: #8ec4ff;
   }
+  
+  /* ══════════════════════════════════════
+   PIX NO MODAL
+══════════════════════════════════════ */
+.pix-modal-box {
+  margin-bottom: 20px;
+  padding: 16px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(47,128,237,0.08),
+      rgba(86,163,255,0.04)
+    );
+  border:
+    1px solid rgba(47,128,237,0.22);
+  border-radius: 12px;
+}
+
+.pix-modal-title {
+  color: var(--mint);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.pix-modal-key {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#modal-pix-chave {
+  flex: 1;
+  min-width: 0;
+  background: var(--bg);
+  border:
+    1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pix-copy-modal-btn {
+  flex-shrink: 0;
+  background:
+    linear-gradient(
+      135deg,
+      #2F80ED,
+      #56A3FF
+    );
+  border: none;
+  border-radius: 8px;
+  padding: 10px 13px;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.pix-copy-modal-btn:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 5px 16px rgba(47,128,237,0.35);
+}
+
+.pix-modal-hint {
+  margin-top: 9px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+@media (max-width: 480px) {
+  .pix-modal-key {
+    align-items: stretch;
+  }
+
+  #modal-pix-chave {
+    font-size: 13px;
+  }
+
+  .pix-copy-modal-btn {
+    padding:
+      10px 12px;
+  }
+}
   /* ══════════════════════════════════════
      FOOTER
   ══════════════════════════════════════ */
@@ -2215,6 +2313,27 @@
         </strong>
       </div>
     </div>
+	<div class="pix-modal-box">
+  <div class="pix-modal-title">
+    PIX PARA PAGAMENTO
+  </div>
+
+  <div class="pix-modal-key">
+    <span id="modal-pix-chave"></span>
+
+    <button
+      type="button"
+      class="pix-copy-modal-btn"
+      onclick="copiarPixModal()"
+    >
+      Copiar
+    </button>
+  </div>
+
+  <div class="pix-modal-hint">
+    Faça o Pix usando esta chave e depois envie o comprovante pelo WhatsApp.
+  </div>
+</div>
     <div
       class="modal-info"
     >
@@ -2340,6 +2459,9 @@ document.addEventListener(
     document.getElementById(
       'pix-chave'
     ).textContent = PIX_CHAVE;
+	document.getElementById(
+	   'modal-pix-chave'
+	).textContent = PIX_CHAVE;
     document.getElementById(
       'footer-ano'
     ).textContent =
@@ -3263,6 +3385,57 @@ async function copiarPix() {
       el.classList.remove(
         'show'
       ),
+    2000
+  );
+}
+
+async function copiarPixModal() {
+  const chave =
+    document.getElementById(
+      'modal-pix-chave'
+    ).textContent.trim();
+
+  try {
+    await navigator.clipboard.writeText(
+      chave
+    );
+  } catch (e) {
+    const textarea =
+      document.createElement(
+        'textarea'
+      );
+
+    textarea.value = chave;
+
+    document.body.appendChild(
+      textarea
+    );
+
+    textarea.select();
+
+    document.execCommand(
+      'copy'
+    );
+
+    textarea.remove();
+  }
+
+  const botao =
+    document.querySelector(
+      '.pix-copy-modal-btn'
+    );
+
+  const textoOriginal =
+    botao.textContent;
+
+  botao.textContent =
+    'Copiado!';
+
+  setTimeout(
+    () => {
+      botao.textContent =
+        textoOriginal;
+    },
     2000
   );
 }
