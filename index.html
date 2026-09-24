@@ -4795,20 +4795,54 @@ function abrirWhatsApp(
     VALOR_NUMERO;
 
 
+  const emojiOla =
+    String.fromCodePoint(0x1F44B);
+
+  const emojiIngresso =
+    String.fromCodePoint(0x1F39F, 0xFE0F);
+
+  const emojiDinheiro =
+    String.fromCodePoint(0x1F4B0);
+
+  const emojiPessoa =
+    String.fromCodePoint(0x1F464);
+
+  const emojiTelefone =
+    String.fromCodePoint(0x1F4F1);
+
+
   const mensagem =
-    `Oi Gabriel! \u{1F44B}\n\n` +
+    `Oi Gabriel! ${emojiOla}\n\n` +
 
     `Acabei de reservar os números da rifa do Gabriel:\n\n` +
 
-    `\u{1F39F}\u{FE0F} Números: ${numeros.join(', ')}\n` +
+    `${emojiIngresso} Números: ${numeros.join(', ')}\n` +
 
-    `\u{1F4B0} Total: ${formatarMoeda(total)}\n` +
+    `${emojiDinheiro} Total: ${formatarMoeda(total)}\n` +
 
-    `\u{1F464} Nome: ${nome}\n` +
+    `${emojiPessoa} Nome: ${nome}\n` +
 
-    `\u{1F4F1} WhatsApp: ${telefone}\n\n` +
+    `${emojiTelefone} WhatsApp: ${telefone}\n\n` +
 
     `Vou enviar o comprovante do Pix por aqui.`;
+
+
+  console.log('Mensagem WhatsApp:', mensagem);
+
+  console.log(
+    'Bytes/código dos emojis:',
+    [
+      emojiOla,
+      emojiIngresso,
+      emojiDinheiro,
+      emojiPessoa,
+      emojiTelefone
+    ].map(
+      emoji => [...emoji].map(
+        caractere => caractere.codePointAt(0).toString(16)
+      )
+    )
+  );
 
 
   window.open(
