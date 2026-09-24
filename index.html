@@ -3,58 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Rifa do Gabriel — CF-L1</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-
 <style>
-
   :root {
     --bg:       #0B0B0B;
     --surface:  #111111;
     --surface2: #1A1A1A;
     --surface3: #222222;
-
     --border:       rgba(255,255,255,0.08);
     --border-hover: rgba(47,128,237,0.45);
-
     --accent:    #2F80ED;
     --accent-dim: rgba(47,128,237,0.15);
-
     --violet:    #56A3FF;
     --violet-dim: rgba(86,163,255,0.12);
-
     --text:  #FFFFFF;
     --muted: #7A7A7A;
     --faint: #333333;
-
     --reserved: #F5A623;
     --reserved-dim: rgba(245,166,35,0.12);
-
     --confirmed: #666666;
-
     --mint: #56A3FF;
     --mint-dim: rgba(86,163,255,0.1);
-
     --radius: 12px;
-
     --grad-fire:   linear-gradient(135deg, #2F80ED 0%, #56A3FF 100%);
     --grad-cosmic: linear-gradient(135deg, #1C4ED8 0%, #56A3FF 100%);
     --grad-gold:   linear-gradient(135deg, #FFFFFF 0%, #BFBFBF 100%);
   }
-
-
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-
   html {
     scroll-behavior: smooth;
   }
-
   body {
     background: var(--bg);
     color: var(--text);
@@ -62,8 +45,6 @@
     min-height: 100vh;
     overflow-x: hidden;
   }
-
-
   body::before {
     content: '';
     position: fixed;
@@ -73,12 +54,9 @@
     z-index: 1000;
     opacity: 0.4;
   }
-
-
   /* ══════════════════════════════════════
      HERO
   ══════════════════════════════════════ */
-
   .hero {
     position: relative;
     min-height: 100svh;
@@ -90,7 +68,6 @@
     text-align: center;
     overflow: hidden;
   }
-
   .hero-bg {
     position: absolute;
     inset: 0;
@@ -113,7 +90,6 @@
       var(--bg);
     z-index: 0;
   }
-
   .hero-grid {
     position: absolute;
     inset: 0;
@@ -136,17 +112,13 @@
         transparent 100%
       );
   }
-
   .hero > * {
     position: relative;
     z-index: 1;
   }
-
-
   /* ══════════════════════════════════════
      BADGE
   ══════════════════════════════════════ */
-
   .badge {
     display: inline-flex;
     align-items: center;
@@ -163,7 +135,6 @@
     margin-bottom: 28px;
     animation: fadeDown 0.6s ease both;
   }
-
   .badge span {
     display: inline-block;
     width: 6px;
@@ -172,21 +143,16 @@
     background: var(--accent);
     animation: pulse 1.5s ease infinite;
   }
-
-
   @keyframes pulse {
     0%, 100% {
       opacity: 1;
       transform: scale(1);
     }
-
     50% {
       opacity: 0.5;
       transform: scale(1.4);
     }
   }
-
-
   .hero-eyebrow {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(13px, 2vw, 16px);
@@ -195,74 +161,53 @@
     margin-bottom: 12px;
     animation: fadeDown 0.7s ease 0.1s both;
   }
-
-
   .hero-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(56px, 12vw, 120px);
     line-height: 0.92;
     letter-spacing: 0.02em;
-
     background: linear-gradient(
       135deg,
       #fff 0%,
       #BFBFBF 45%,
       #56A3FF 100%
     );
-
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-
     margin-bottom: 8px;
-
     animation: fadeDown 0.7s ease 0.2s both;
   }
-
-
   .hero-subtitle {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(24px, 5vw, 52px);
     letter-spacing: 0.08em;
-
     background: var(--grad-cosmic);
-
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-
     margin-bottom: 32px;
-
     animation: fadeDown 0.7s ease 0.3s both;
   }
-
-
   .hero-desc {
     max-width: 560px;
     color: var(--muted);
     font-size: 15px;
     line-height: 1.7;
     margin-bottom: 48px;
-
     animation: fadeDown 0.7s ease 0.4s both;
   }
-
   .hero-desc strong {
     color: var(--text);
   }
-
-
   .hero-stats {
     display: flex;
     gap: 24px;
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 48px;
-
     animation: fadeDown 0.7s ease 0.5s both;
   }
-
-
   .stat-card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -270,42 +215,30 @@
     padding: 20px 28px;
     text-align: center;
     min-width: 120px;
-
     transition:
       border-color 0.2s,
       box-shadow 0.2s;
   }
-
-
   .stat-card:hover {
     border-color: rgba(47,128,237,0.4);
     box-shadow: 0 0 24px rgba(47,128,237,0.1);
   }
-
-
   .stat-num {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 40px;
     line-height: 1;
-
     background: var(--grad-fire);
-
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-
     margin-bottom: 4px;
   }
-
-
   .stat-label {
     font-size: 11px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--muted);
   }
-
-
   .scroll-hint {
     display: flex;
     flex-direction: column;
@@ -317,67 +250,49 @@
     text-transform: uppercase;
     animation: fadeDown 0.7s ease 0.8s both;
   }
-
   .scroll-hint svg {
     animation: bounce 2s ease infinite;
   }
-
-
   @keyframes bounce {
     0%, 100% {
       transform: translateY(0);
     }
-
     50% {
       transform: translateY(6px);
     }
   }
-
-
   @keyframes fadeDown {
     from {
       opacity: 0;
       transform: translateY(-20px);
     }
-
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
-
-
   /* ══════════════════════════════════════
      SECTION SHARED
   ══════════════════════════════════════ */
-
   section {
     padding: 80px 24px;
     position: relative;
   }
-
   .container {
     max-width: 1100px;
     margin: 0 auto;
   }
-
-
   .section-label {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 12px;
     letter-spacing: 0.3em;
-
     background: var(--grad-cosmic);
-
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-
     text-transform: uppercase;
     margin-bottom: 8px;
   }
-
-
   .section-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(32px, 6vw, 56px);
@@ -385,8 +300,6 @@
     margin-bottom: 16px;
     line-height: 1.05;
   }
-
-
   .section-sub {
     color: var(--muted);
     font-size: 15px;
@@ -394,12 +307,9 @@
     max-width: 540px;
     margin-bottom: 48px;
   }
-
-
   /* ══════════════════════════════════════
      HERO PHOTO
   ══════════════════════════════════════ */
-
   .hero-photo-wrap {
     position: relative;
     width: 110px;
@@ -407,13 +317,10 @@
     margin-bottom: 24px;
     animation: fadeDown 0.5s ease both;
   }
-
-
   .hero-photo-ring {
     position: absolute;
     inset: -4px;
     border-radius: 50%;
-
     background:
       conic-gradient(
         #2F80ED,
@@ -421,13 +328,9 @@
         #ffffff,
         #2F80ED
       );
-
     z-index: 0;
-
     animation: spin 4s linear infinite;
   }
-
-
   .hero-photo-label {
     position: absolute;
     inset: 3px;
@@ -437,67 +340,46 @@
     display: block;
     background: var(--surface2);
   }
-
-
   #hero-photo {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
-
     box-shadow:
       0 0 20px rgba(47,128,237,0.45),
       0 0 40px rgba(28,78,216,0.25);
   }
-
-
   /* ══════════════════════════════════════
      COURSE COST
   ══════════════════════════════════════ */
-
   .course-cost-banner {
     display: flex;
     align-items: center;
     gap: 0;
-
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 16px;
-
     overflow: hidden;
     margin-bottom: 36px;
-
     flex-wrap: wrap;
-
     animation: fadeDown 0.7s ease 0.45s both;
   }
-
-
   .cost-item {
     display: flex;
     align-items: center;
     gap: 12px;
-
     padding: 18px 28px;
-
     flex: 1;
     min-width: 160px;
-
     transition: background 0.2s;
   }
-
-
   .cost-item:hover {
     background: rgba(47,128,237,0.04);
   }
-
-
   .cost-icon {
     font-size: 24px;
     flex-shrink: 0;
   }
-
-
   .cost-label {
     font-size: 10px;
     letter-spacing: 0.1em;
@@ -505,492 +387,320 @@
     color: var(--muted);
     margin-bottom: 2px;
   }
-
-
   .cost-value {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 24px;
     letter-spacing: 0.04em;
-
     background: var(--grad-fire);
-
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-
     line-height: 1.1;
   }
-
-
   .cost-detail {
     font-size: 11px;
     color: var(--faint);
     margin-top: 1px;
   }
-
-
   .cost-divider {
     width: 1px;
     height: 48px;
     background: var(--border);
     flex-shrink: 0;
   }
-
-
   /* ══════════════════════════════════════
      ABOUT
   ══════════════════════════════════════ */
-
   .about-grid {
     display: grid;
     grid-template-columns: repeat(
       auto-fit,
       minmax(240px, 1fr)
     );
-
     gap: 16px;
     margin-top: 48px;
   }
-
-
   .about-card {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 24px;
-
     transition:
       transform 0.25s,
       border-color 0.25s,
       box-shadow 0.25s;
   }
-
-
   .about-card:hover {
     transform: translateY(-4px);
     border-color: rgba(47,128,237,0.3);
     box-shadow: 0 8px 32px rgba(47,128,237,0.08);
   }
-
-
   .about-icon {
     font-size: 28px;
     margin-bottom: 14px;
     display: block;
   }
-
-
   .about-card h3 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 20px;
     letter-spacing: 0.05em;
     margin-bottom: 8px;
-
     background: var(--grad-cosmic);
-
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-
-
   .about-card p {
     font-size: 13px;
     color: var(--muted);
     line-height: 1.65;
   }
-
-
   /* ══════════════════════════════════════
      PRÊMIOS
   ══════════════════════════════════════ */
-
   #premios {
     background: #0d0d0d;
   }
-
-
   .premios-grid {
     display: grid;
     grid-template-columns: repeat(
       auto-fit,
       minmax(240px, 1fr)
     );
-
     gap: 16px;
     margin-top: 40px;
   }
-
-
   .premio-card {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-
     padding: 28px;
-
     text-align: center;
-
     position: relative;
-
     transition: all 0.25s;
   }
-
-
   .premio-card:hover {
     transform: translateY(-6px);
     border-color: rgba(47,128,237,0.35);
     box-shadow: 0 10px 40px rgba(47,128,237,0.14);
   }
-
-
   .premio-card.destaque {
     border: 1px solid rgba(255,255,255,0.25);
     box-shadow: 0 10px 40px rgba(255,255,255,0.06);
   }
-
-
   .premio-badge {
     position: absolute;
     top: 12px;
     left: 12px;
-
     font-size: 10px;
     letter-spacing: 0.1em;
-
     padding: 4px 8px;
-
     border-radius: 6px;
-
     background: var(--grad-gold);
-
     color: #000;
-
     font-weight: 600;
   }
-
-
   .premio-icon {
     font-size: 42px;
     margin-bottom: 12px;
   }
-
-
   .premio-card h3 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 22px;
     margin-bottom: 8px;
     letter-spacing: 0.05em;
   }
-
-
   .premio-card p {
     font-size: 13px;
     color: var(--muted);
     line-height: 1.6;
   }
-
-
   .premio-valor {
     margin-top: 14px;
-
     font-family: 'Bebas Neue', sans-serif;
     font-size: 28px;
-
     background: var(--grad-fire);
-
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-
-
   .top-compradores {
     margin-top: 40px;
-
     background: var(--surface);
-
     border: 1px solid var(--border);
-
     border-radius: 16px;
-
     padding: 24px;
   }
-
-
   .top-compradores h3 {
     font-family: 'Bebas Neue';
     font-size: 22px;
     letter-spacing: 0.05em;
     margin-bottom: 16px;
-
     background: var(--grad-fire);
-
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-
-
   .top-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     background: var(--surface2);
-
     padding: 10px 14px;
-
     border-radius: 8px;
-
     font-size: 14px;
   }
-
-
   .top-item strong {
     color: var(--accent);
   }
-
-
   /* ══════════════════════════════════════
      RIFA
   ══════════════════════════════════════ */
-
   #rifa {
     background: var(--surface);
   }
-
-
   .rifa-controls {
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
     align-items: center;
-
     margin-bottom: 32px;
   }
-
-
   .filter-btn {
     background: transparent;
-
     border: 1px solid var(--border);
-
     color: var(--muted);
-
     border-radius: 100px;
-
     padding: 8px 18px;
-
     font-family: 'DM Sans', sans-serif;
     font-size: 13px;
-
     cursor: pointer;
-
     transition: all 0.2s;
   }
-
-
   .filter-btn.active,
   .filter-btn:hover {
     background: var(--grad-fire);
-
     border-color: transparent;
-
     color: #fff;
-
     box-shadow:
       0 4px 16px rgba(47,128,237,0.35);
   }
-
-
   .search-box {
     margin-left: auto;
-
     background: var(--bg);
-
     border: 1px solid var(--border);
-
     border-radius: 100px;
-
     padding: 8px 18px;
-
     color: var(--text);
-
     font-family: 'DM Sans', sans-serif;
     font-size: 13px;
-
     outline: none;
-
     width: 220px;
-
     transition:
       border-color 0.2s,
       box-shadow 0.2s;
   }
-
-
   .search-box:focus {
     border-color: rgba(47,128,237,0.5);
-
     box-shadow:
       0 0 0 3px rgba(47,128,237,0.1);
   }
-
-
   .search-box::placeholder {
     color: var(--muted);
   }
-
-
   .loading-msg {
     text-align: center;
-
     padding: 60px;
-
     color: var(--muted);
-
     font-size: 14px;
   }
-
-
   .loading-spinner {
     display: inline-block;
-
     width: 32px;
     height: 32px;
-
     border: 3px solid var(--border);
-
     border-top-color: var(--accent);
     border-right-color: var(--violet);
-
     border-radius: 50%;
-
     animation: spin 0.8s linear infinite;
-
     margin-bottom: 12px;
   }
-
-
   @keyframes spin {
     to {
       transform: rotate(360deg);
     }
   }
-
-
   .numbers-grid {
     display: grid;
-
     grid-template-columns:
       repeat(
         auto-fill,
         minmax(90px, 1fr)
       );
-
     gap: 8px;
-
     /* Espaço para a barra fixa de seleção */
     padding-bottom: 90px;
   }
-
-
   /* ══════════════════════════════════════
      CARD DOS NÚMEROS
   ══════════════════════════════════════ */
-
   .num-card {
     background: var(--surface2);
-
     border: 1px solid var(--border);
-
     border-radius: 10px;
-
     padding: 14px 8px;
-
     text-align: center;
-
     position: relative;
-
     overflow: hidden;
-
     transition: all 0.25s ease;
   }
-
-
   .num-card::before {
     content: '';
-
     position: absolute;
-
     inset: 0;
-
     background: var(--grad-cosmic);
-
     opacity: 0;
-
     transition: opacity 0.25s;
   }
-
-
   .num-card.livre {
     cursor: pointer;
-
     background:
       linear-gradient(
         135deg,
         rgba(47,128,237,0.18),
         rgba(86,163,255,0.10)
       );
-
     border-color: rgba(47,128,237,0.7);
-
     box-shadow:
       0 0 12px rgba(47,128,237,0.18);
-
     animation:
       pulseLivre 2.2s ease-in-out infinite;
   }
-
-
   .num-card.livre:hover {
     transform: scale(1.08);
-
     border-color: #56A3FF;
-
     box-shadow:
       0 8px 32px rgba(47,128,237,0.45);
   }
-
-
   .num-card.livre:hover::before {
     opacity: 0.07;
   }
-
-
   @keyframes pulseLivre {
     0%, 100% {
       box-shadow:
         0 0 10px rgba(47,128,237,0.15);
     }
-
     50% {
       box-shadow:
         0 0 22px rgba(47,128,237,0.45);
     }
   }
-
-
   .num-card.livre .num-num {
     color: #ffffff;
-
     text-shadow:
       0 0 6px rgba(47,128,237,0.7),
       0 0 14px rgba(47,128,237,0.45);
   }
-
-
   .num-card.livre .num-tag {
     background:
       linear-gradient(
@@ -998,21 +708,14 @@
         #2F80ED,
         #56A3FF
       );
-
     color: #fff;
-
     border: none;
-
     font-weight: 700;
-
     letter-spacing: 0.06em;
   }
-
-
   /* ══════════════════════════════════════
      RESERVADO
   ══════════════════════════════════════ */
-
   .num-card.reservado {
     background:
       linear-gradient(
@@ -1020,321 +723,218 @@
         rgba(245,166,35,0.08),
         rgba(245,166,35,0.03)
       );
-
     border-color:
       rgba(245,166,35,0.30);
-
     opacity: 0.72;
-
     cursor: not-allowed;
   }
-
-
   .num-card.reservado .num-num {
     color: #D5D5D5;
-
     text-shadow: none;
   }
-
-
   .num-card.reservado .num-name {
     color: var(--reserved);
   }
-
-
   .num-card.reservado .num-tag {
     background:
       rgba(245,166,35,0.14);
-
     color: var(--reserved);
-
     border:
       1px solid rgba(245,166,35,0.20);
   }
-
-
   /* ══════════════════════════════════════
      CONFIRMADO
   ══════════════════════════════════════ */
-
   .num-card.confirmado {
     background:
       rgba(255,255,255,0.025);
-
     border-color:
       rgba(255,255,255,0.06);
-
     opacity: 0.48;
-
     filter: grayscale(35%);
-
     cursor: default;
   }
-
-
   .num-card.confirmado .num-num {
     color: #666;
-
     text-shadow: none;
   }
-
-
   .num-card.confirmado .num-name {
     color: #777;
   }
-
-
   .num-card.confirmado .num-tag {
     background:
       rgba(255,255,255,0.06);
-
     color: #999;
   }
-
-
   /* ══════════════════════════════════════
      CONTEÚDO DOS CARDS
   ══════════════════════════════════════ */
-
   .num-num {
     font-family: 'Bebas Neue', sans-serif;
-
     font-size: 28px;
-
     letter-spacing: 0.05em;
-
     display: block;
-
     position: relative;
-
     z-index: 1;
   }
-
-
   .num-name {
     font-size: 10px;
-
     color: #56A3FF;
-
     white-space: nowrap;
-
     overflow: hidden;
-
     text-overflow: ellipsis;
-
     max-width: 100%;
-
     display: block;
-
     margin: 2px 0 6px;
-
     position: relative;
-
     z-index: 1;
   }
-
-
   .num-tag {
     display: inline-block;
-
     font-size: 9px;
-
     letter-spacing: 0.08em;
-
     text-transform: uppercase;
-
     border-radius: 4px;
-
     padding: 2px 6px;
-
     position: relative;
-
     z-index: 1;
   }
-
-
   /* ══════════════════════════════════════
      SELECIONADO
   ══════════════════════════════════════ */
-
   .num-card.selected {
-    border-color: #2F80ED;
+  background:
+    linear-gradient(
+      135deg,
+      #1C4ED8 0%,
+      #2F80ED 55%,
+      #56A3FF 100%
+    );
 
-    box-shadow:
-      0 0 20px rgba(47,128,237,0.5);
+  border-color: #FFFFFF;
 
-    transform: scale(1.05);
-  }
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,0.35),
+    0 0 28px rgba(47,128,237,0.75);
 
+  transform: scale(1.06);
 
-  .num-card.selected .num-tag {
-    background: #2F80ED;
+  animation: none;
+}
 
-    color: #fff;
-  }
+.num-card.selected::before {
+  opacity: 0;
+}
 
+.num-card.selected .num-num {
+  color: #FFFFFF;
 
+  text-shadow:
+    0 2px 8px rgba(0,0,0,0.25);
+}
+
+.num-card.selected .num-name {
+  color: #FFFFFF;
+}
+
+.num-card.selected .num-tag {
+  background: #FFFFFF;
+  color: #1C4ED8;
+  font-weight: 700;
+}
   /* ══════════════════════════════════════
      CONFIG / AVISO
   ══════════════════════════════════════ */
-
   .config-banner {
     background:
       rgba(47,128,237,0.07);
-
     border:
       1px solid rgba(47,128,237,0.2);
-
     border-radius: var(--radius);
-
     padding: 16px 20px;
-
     margin-bottom: 24px;
-
     font-size: 13px;
-
     color: var(--mint);
-
     display: flex;
-
     gap: 10px;
-
     align-items: flex-start;
-
     line-height: 1.5;
   }
-
-
   .error-banner {
     background:
       rgba(255,80,80,0.08);
-
     border:
       1px solid rgba(255,80,80,0.20);
-
     border-radius: var(--radius);
-
     padding: 16px 20px;
-
     color: #ff9a9a;
-
     font-size: 13px;
-
     line-height: 1.5;
-
     margin-bottom: 20px;
   }
-
-
   /* ══════════════════════════════════════
      SUMMARY
   ══════════════════════════════════════ */
-
   .rifa-summary {
     display: flex;
-
     gap: 12px;
-
     flex-wrap: wrap;
-
     margin-top: 32px;
-
     padding-top: 32px;
-
     border-top:
       1px solid var(--border);
   }
-
-
   .summary-chip {
     display: flex;
-
     align-items: center;
-
     gap: 8px;
-
     background: var(--bg);
-
     border:
       1px solid var(--border);
-
     border-radius: 100px;
-
     padding: 8px 16px;
-
     font-size: 13px;
   }
-
-
   .summary-chip .dot {
     width: 8px;
     height: 8px;
-
     border-radius: 50%;
-
     flex-shrink: 0;
   }
-
-
   /* ══════════════════════════════════════
      BARRA DE SELEÇÃO
   ══════════════════════════════════════ */
-
   #barra-selecao {
     position: fixed;
-
     bottom: 24px;
-
     left: 50%;
-
     transform: translateX(-50%);
-
     background: rgba(17,17,17,0.97);
-
     border:
       1px solid rgba(47,128,237,0.35);
-
     border-radius: 100px;
-
     padding: 12px 20px;
-
     display: none;
-
     align-items: center;
-
     gap: 16px;
-
     z-index: 100;
-
     box-shadow:
       0 12px 40px rgba(0,0,0,0.55),
       0 0 30px rgba(47,128,237,0.12);
-
     max-width:
       calc(100vw - 32px);
-
     margin-bottom: 0;
-
     backdrop-filter: blur(12px);
   }
-
-
   #qtd-selecionados {
     white-space: nowrap;
-
     font-size: 13px;
   }
-
-
   #valor-selecionados {
     color: var(--accent);
-
     font-weight: 700;
-
     white-space: nowrap;
   }
-
-
   .selection-button {
     background:
       linear-gradient(
@@ -1342,174 +942,108 @@
         #2F80ED,
         #56A3FF
       );
-
     border: none;
-
     color: #fff;
-
     padding: 10px 18px;
-
     border-radius: 100px;
-
     cursor: pointer;
-
     font-family:
       'DM Sans',
       sans-serif;
-
     font-size: 14px;
-
     font-weight: 600;
-
     white-space: nowrap;
-
     transition:
       transform 0.2s,
       box-shadow 0.2s;
   }
-
-
   .selection-button:hover {
     transform: translateY(-1px);
-
     box-shadow:
       0 6px 20px rgba(47,128,237,0.4);
   }
-
-
   /* ══════════════════════════════════════
      PROGRESSO
   ══════════════════════════════════════ */
-
   #progresso {
     background: var(--bg);
   }
-
-
   .progress-wrapper {
     background: var(--surface);
-
     border:
       1px solid var(--border);
-
     border-radius: 20px;
-
     padding: 48px;
-
     position: relative;
-
     overflow: hidden;
   }
-
-
   .progress-wrapper::before {
     content: '';
-
     position: absolute;
-
     top: -80px;
     right: -80px;
-
     width: 300px;
     height: 300px;
-
     background:
       radial-gradient(
         circle,
         rgba(47,128,237,0.1) 0%,
         transparent 70%
       );
-
     pointer-events: none;
   }
-
-
   .progress-wrapper::after {
     content: '';
-
     position: absolute;
-
     bottom: -60px;
     left: -60px;
-
     width: 200px;
     height: 200px;
-
     background:
       radial-gradient(
         circle,
         rgba(28,78,216,0.08) 0%,
         transparent 70%
       );
-
     pointer-events: none;
   }
-
-
   .progress-header {
     display: flex;
-
     align-items: flex-end;
-
     justify-content: space-between;
-
     margin-bottom: 24px;
-
     flex-wrap: wrap;
-
     gap: 12px;
   }
-
-
   .progress-amount {
     font-family: 'Bebas Neue', sans-serif;
-
     font-size:
       clamp(40px, 7vw, 72px);
-
     line-height: 1;
-
     background: var(--grad-gold);
-
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-
-
   .progress-meta {
     color: var(--muted);
-
     font-size: 13px;
   }
-
-
   .progress-meta strong {
     color: var(--text);
   }
-
-
   .progress-bar-track {
     background: var(--surface3);
-
     border-radius: 100px;
-
     height: 20px;
-
     overflow: hidden;
-
     margin-bottom: 12px;
-
     border:
       1px solid var(--border);
   }
-
-
   .progress-bar-fill {
     height: 100%;
-
     border-radius: 100px;
-
     background:
       linear-gradient(
         90deg,
@@ -1517,7 +1051,6 @@
         #2F80ED 50%,
         #56A3FF 100%
       );
-
     transition:
       width 1.2s cubic-bezier(
         0.22,
@@ -1525,20 +1058,13 @@
         0.36,
         1
       );
-
     position: relative;
-
     overflow: hidden;
   }
-
-
   .progress-bar-fill::after {
     content: '';
-
     position: absolute;
-
     inset: 0;
-
     background:
       linear-gradient(
         90deg,
@@ -1546,349 +1072,207 @@
         rgba(255,255,255,0.25) 50%,
         transparent 100%
       );
-
     animation:
       shimmer 2s ease infinite;
   }
-
-
   @keyframes shimmer {
     from {
       transform: translateX(-100%);
     }
-
     to {
       transform: translateX(200%);
     }
   }
-
-
   .progress-ticks {
     display: flex;
-
     justify-content: space-between;
-
     color: var(--faint);
-
     font-size: 11px;
-
     letter-spacing: 0.05em;
-
     margin-bottom: 40px;
   }
-
-
   .progress-goal {
     display: grid;
-
     grid-template-columns:
       repeat(
         auto-fit,
         minmax(180px, 1fr)
       );
-
     gap: 16px;
-
     margin-top: 32px;
   }
-
-
   .goal-item {
     background: var(--surface2);
-
     border:
       1px solid var(--border);
-
     border-radius: var(--radius);
-
     padding: 20px;
   }
-
-
   .goal-item .label {
     font-size: 11px;
-
     letter-spacing: 0.1em;
-
     text-transform: uppercase;
-
     color: var(--muted);
-
     margin-bottom: 6px;
   }
-
-
   .goal-item .value {
     font-family: 'Bebas Neue', sans-serif;
-
     font-size: 28px;
-
     letter-spacing: 0.03em;
-
     background: var(--grad-gold);
-
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-
-
   .goal-item .detail {
     font-size: 12px;
-
     color: var(--muted);
-
     margin-top: 2px;
   }
-
-
   /* ══════════════════════════════════════
      PIX
   ══════════════════════════════════════ */
-
   .pix-section {
     margin-top: 48px;
-
     background:
       linear-gradient(
         135deg,
         rgba(47,128,237,0.06) 0%,
         rgba(28,78,216,0.02) 100%
       );
-
     border:
       1px solid rgba(47,128,237,0.2);
-
     border-radius: 20px;
-
     padding: 40px;
-
     text-align: center;
-
     position: relative;
-
     overflow: hidden;
   }
-
-
   .pix-icon {
     font-size: 48px;
-
     margin-bottom: 16px;
-
     display: block;
-
     position: relative;
   }
-
-
   .pix-title {
     font-family: 'Bebas Neue', sans-serif;
-
     font-size: 28px;
-
     letter-spacing: 0.05em;
-
     color: var(--mint);
-
     margin-bottom: 8px;
-
     position: relative;
   }
-
-
   .pix-desc {
     color: var(--muted);
-
     font-size: 14px;
-
     line-height: 1.6;
-
     max-width: 440px;
-
     margin:
       0 auto 24px;
-
     position: relative;
   }
-
-
   .pix-key-box {
     display: inline-flex;
-
     align-items: center;
-
     gap: 12px;
-
     background:
       rgba(0,0,0,0.3);
-
     border:
       1px solid rgba(47,128,237,0.28);
-
     border-radius: var(--radius);
-
     padding: 14px 24px;
-
     cursor: pointer;
-
     transition: all 0.2s;
-
     position: relative;
   }
-
-
   .pix-key-box:hover {
     border-color:
       rgba(47,128,237,0.6);
-
     background:
       rgba(47,128,237,0.07);
-
     box-shadow:
       0 0 24px rgba(47,128,237,0.12);
   }
-
-
   .pix-key-text {
     font-family: 'Bebas Neue', sans-serif;
-
     font-size: 20px;
-
     letter-spacing: 0.08em;
-
     color: var(--mint);
   }
-
-
   .pix-copy-btn {
     background:
       rgba(47,128,237,0.14);
-
     border: none;
-
     border-radius: 6px;
-
     padding: 4px 10px;
-
     color: var(--mint);
-
     font-size: 11px;
-
     letter-spacing: 0.1em;
-
     text-transform: uppercase;
-
     cursor: pointer;
-
     font-family: 'DM Sans', sans-serif;
-
     transition:
       background 0.2s;
   }
-
-
   .pix-copy-btn:hover {
     background:
       rgba(47,128,237,0.28);
   }
-
-
   .pix-copied {
     position: absolute;
-
     bottom: -32px;
-
     left: 50%;
-
     transform:
       translateX(-50%);
-
     background: var(--accent);
-
     color: #fff;
-
     font-size: 11px;
-
     font-weight: 600;
-
     border-radius: 4px;
-
     padding: 4px 10px;
-
     white-space: nowrap;
-
     opacity: 0;
-
     transition:
       opacity 0.3s;
   }
-
-
   .pix-copied.show {
     opacity: 1;
   }
-
-
   /* ══════════════════════════════════════
      MODAL RESERVA
   ══════════════════════════════════════ */
-
   .modal-backdrop {
     display: none;
-
     position: fixed;
-
     inset: 0;
-
     background:
       rgba(0,0,0,0.80);
-
     backdrop-filter:
       blur(8px);
-
     z-index: 500;
-
     align-items: center;
-
     justify-content: center;
-
     padding: 24px;
   }
-
-
   .modal-backdrop.open {
     display: flex;
   }
-
-
   .modal {
     background: var(--surface2);
-
     border:
       1px solid rgba(47,128,237,0.22);
-
     border-radius: 20px;
-
     padding: 32px;
-
     max-width: 460px;
-
     width: 100%;
-
     animation:
       modalIn 0.3s ease;
-
     box-shadow:
       0 24px 80px rgba(47,128,237,0.15);
-
     max-height:
       calc(100vh - 40px);
-
     overflow-y: auto;
   }
-
-
   @keyframes modalIn {
     from {
       opacity: 0;
@@ -1896,7 +1280,6 @@
         scale(0.92)
         translateY(16px);
     }
-
     to {
       opacity: 1;
       transform:
@@ -1904,255 +1287,148 @@
         translateY(0);
     }
   }
-
-
   .modal-header {
     text-align: center;
-
     margin-bottom: 24px;
   }
-
-
   .modal-icon {
     font-size: 38px;
-
     margin-bottom: 8px;
   }
-
-
   .modal h3 {
     font-family: 'Bebas Neue', sans-serif;
-
     font-size: 28px;
-
     letter-spacing: 0.05em;
-
     margin-bottom: 8px;
-
     background: var(--grad-fire);
-
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-
-
   .modal-subtitle {
     color: var(--muted);
-
     font-size: 13px;
-
     line-height: 1.6;
   }
-
-
   .reservation-numbers {
     background: var(--bg);
-
     border:
       1px solid var(--border);
-
     border-radius: 12px;
-
     padding: 14px;
-
     margin-bottom: 20px;
   }
-
-
   .reservation-numbers-label {
     color: var(--muted);
-
     font-size: 10px;
-
     text-transform: uppercase;
-
     letter-spacing: 0.1em;
-
     margin-bottom: 8px;
   }
-
-
   #modal-numeros {
     color: #fff;
-
     font-family: 'Bebas Neue', sans-serif;
-
     font-size: 24px;
-
     letter-spacing: 0.05em;
-
     line-height: 1.4;
-
     word-break: break-word;
   }
-
-
   .reservation-total {
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
     margin-top: 10px;
-
     padding-top: 10px;
-
     border-top:
       1px solid var(--border);
-
     font-size: 13px;
-
     color: var(--muted);
   }
-
-
   .reservation-total strong {
     color: var(--accent);
-
     font-family: 'Bebas Neue', sans-serif;
-
     font-size: 24px;
   }
-
-
   .form-group {
     margin-bottom: 16px;
-
     text-align: left;
   }
-
-
   .form-group label {
     display: block;
-
     font-size: 11px;
-
     letter-spacing: 0.08em;
-
     text-transform: uppercase;
-
     color: var(--muted);
-
     margin-bottom: 7px;
   }
-
-
   .form-input {
     width: 100%;
-
     background: var(--bg);
-
     border:
       1px solid var(--border);
-
     border-radius: 10px;
-
     padding: 13px 14px;
-
     color: var(--text);
-
     font-family: 'DM Sans', sans-serif;
-
     font-size: 14px;
-
     outline: none;
-
     transition:
       border-color 0.2s,
       box-shadow 0.2s;
   }
-
-
   .form-input:focus {
     border-color:
       rgba(47,128,237,0.6);
-
     box-shadow:
       0 0 0 3px
       rgba(47,128,237,0.10);
   }
-
-
   .form-input::placeholder {
     color: #555;
   }
-
-
   .modal-info {
     background:
       rgba(245,166,35,0.06);
-
     border:
       1px solid rgba(245,166,35,0.15);
-
     border-radius: 10px;
-
     padding: 12px;
-
     font-size: 12px;
-
     line-height: 1.5;
-
     color: #aaa;
-
     margin-bottom: 20px;
-
     text-align: left;
   }
-
-
   .modal-info strong {
     color: var(--reserved);
   }
-
-
   .modal-actions {
     display: flex;
-
     gap: 10px;
   }
-
-
   .modal-btn {
     flex: 1;
-
     border-radius: 100px;
-
     padding: 12px 18px;
-
     font-family:
       'DM Sans',
       sans-serif;
-
     font-size: 14px;
-
     font-weight: 600;
-
     cursor: pointer;
-
     transition: all 0.2s;
   }
-
-
   .modal-btn-cancel {
     background:
       var(--surface3);
-
     border:
       1px solid var(--border);
-
     color: var(--text);
   }
-
-
   .modal-btn-cancel:hover {
     border-color:
       rgba(255,255,255,0.2);
   }
-
-
   .modal-btn-confirm {
     background:
       linear-gradient(
@@ -2160,121 +1436,78 @@
         #2F80ED,
         #56A3FF
       );
-
     border: none;
-
     color: white;
   }
-
-
   .modal-btn-confirm:hover {
     box-shadow:
       0 6px 20px rgba(47,128,237,0.35);
   }
-
-
   .modal-btn-confirm:disabled {
     opacity: 0.5;
-
     cursor: wait;
-
     box-shadow: none;
   }
-
-
   .modal-message {
     display: none;
-
     padding: 12px;
-
     border-radius: 10px;
-
     margin-bottom: 16px;
-
     font-size: 13px;
-
     line-height: 1.5;
   }
-
-
   .modal-message.show {
     display: block;
   }
-
-
   .modal-message.error {
     background:
       rgba(255,70,70,0.08);
-
     border:
       1px solid rgba(255,70,70,0.18);
-
     color: #ff9b9b;
   }
-
-
   .modal-message.success {
     background:
       rgba(47,128,237,0.08);
-
     border:
       1px solid rgba(47,128,237,0.18);
-
     color: #8ec4ff;
   }
-
-
   /* ══════════════════════════════════════
      FOOTER
   ══════════════════════════════════════ */
-
   footer {
     border-top:
       1px solid var(--border);
-
     padding: 32px 24px;
-
     text-align: center;
-
     color: var(--muted);
-
     font-size: 13px;
   }
-
-
   footer strong {
     background: var(--grad-fire);
-
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-
-
   /* ══════════════════════════════════════
      RESPONSIVO
   ══════════════════════════════════════ */
-
   @media (max-width: 600px) {
-
     .progress-wrapper {
       padding: 28px 20px;
     }
-
     .pix-section {
       padding: 28px 20px;
     }
-
     .rifa-controls {
       flex-direction: column;
       align-items: stretch;
     }
-
     .search-box {
       margin-left: 0;
       width: 100%;
     }
-
     /*
       Barra de seleção no celular.
       Fica acima da borda inferior da tela
@@ -2282,90 +1515,59 @@
     */
     #barra-selecao {
       bottom: 12px;
-
       border-radius: 18px;
-
       width:
         calc(100vw - 24px);
-
       padding: 12px 14px;
-
       justify-content: space-between;
-
       gap: 8px;
-
       z-index: 100;
     }
-
     /*
       Espaço adicional para a barra fixa.
     */
     .numbers-grid {
       padding-bottom: 100px;
     }
-
     #valor-selecionados {
       display: none;
     }
-
     .selection-button {
       padding:
         10px 14px;
-
       font-size: 13px;
     }
-
     .modal {
       padding: 24px;
     }
-
   }
-
-
   @media (max-width: 540px) {
-
     .course-cost-banner {
       flex-direction: column;
     }
-
     .cost-divider {
       width: 100%;
       height: 1px;
     }
-
     .cost-item {
       justify-content: center;
     }
-
   }
-
 </style>
 </head>
-
-
 <body>
-
-
 <!-- ══════════════════════════════════════
      HERO
 ══════════════════════════════════════ -->
-
 <section class="hero">
-
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
-
-
   <div class="badge">
     <span></span>
     Campanha ativa · Ajude o Gabi
   </div>
-
-
   <div class="hero-photo-wrap">
-
     <div class="hero-photo-ring"></div>
-
     <label
       class="hero-photo-label"
       id="photo-label"
@@ -2377,33 +1579,22 @@
         alt="Gabriel Saldanha"
       >
     </label>
-
   </div>
-
-
   <p class="hero-eyebrow">
     Rifa Solidária · CrossFit L1
   </p>
-
-
   <h1 class="hero-title">
     GABRIEL <span style="color:var(--accent)">SALDANHA</span>
   </h1>
-
-
   <p class="hero-subtitle">
     CF-L1 TRAINER CERTIFICATE
   </p>
-
-
   <p class="hero-desc">
     O Gabriel está dando um passo gigante para se tornar
     <strong>Coach de CrossFit</strong>.
     Esse curso é a porta de entrada para transformar vidas —
     e você pode fazer parte disso.
   </p>
-
-
   <div
     style="
       display:flex;
@@ -2413,7 +1604,6 @@
       margin-bottom:40px;
     "
   >
-
     <a
       href="#rifa"
       style="
@@ -2433,8 +1623,6 @@
     >
       Escolher número
     </a>
-
-
     <a
       href="#progresso"
       style="
@@ -2451,109 +1639,67 @@
     >
       Ver progresso
     </a>
-
   </div>
-
-
   <div class="course-cost-banner">
-
     <div class="cost-item">
-
       <span class="cost-icon">💸</span>
-
       <div>
-
         <div class="cost-label">
           Custo do curso
         </div>
-
         <div class="cost-value">
           ~R$ 5.300
         </div>
-
         <div class="cost-detail">
           US$ 1.000 · CrossFit oficial
         </div>
-
       </div>
-
     </div>
-
-
     <div class="cost-divider"></div>
-
-
     <div class="cost-item">
-
       <span class="cost-icon">🔥</span>
-
       <div>
-
         <div class="cost-label">
           Impacto
         </div>
-
         <div class="cost-value">
           Futuro CrossFit Level 1 Trainer
         </div>
-
         <div class="cost-detail">
           mudando vidas
         </div>
-
       </div>
-
     </div>
-
   </div>
-
-
   <div class="hero-stats">
-
     <div class="stat-card">
-
       <div class="stat-num">
         350
       </div>
-
       <div class="stat-label">
         Números
       </div>
-
     </div>
-
-
     <div class="stat-card">
-
       <div class="stat-num">
         R$15
       </div>
-
       <div class="stat-label">
         Por número
       </div>
-
     </div>
-
-
     <div class="stat-card">
-
       <div
         class="stat-num"
         id="stat-vendidos"
       >
         —
       </div>
-
       <div class="stat-label">
         Confirmados
       </div>
-
     </div>
-
   </div>
-
-
   <div
     id="faltam-banner"
     style="
@@ -2578,8 +1724,6 @@
   >
     Faltam apenas — números
   </div>
-
-
   <p
     style="
       margin-top:32px;
@@ -2590,87 +1734,59 @@
   >
     Cada número comprado é um passo mais perto do sonho dele 💪
   </p>
-
 </section>
-
-
-
 <!-- ══════════════════════════════════════
      SOBRE O CF-L1
 ══════════════════════════════════════ -->
-
 <section id="sobre">
-
   <div class="container">
-
     <p class="section-label">
       O que é o CF-L1?
     </p>
-
     <h2 class="section-title">
       A CERTIFICAÇÃO<br>
       QUE VAI MUDAR TUDO
     </h2>
-
     <p class="section-sub">
       O CrossFit Level 1 é a porta de entrada para o mundo do coaching
       de alta performance. Um curso intensivo reconhecido mundialmente.
     </p>
-
-
     <div class="about-grid">
-
-
       <div class="about-card">
-
         <span class="about-icon">
           📅
         </span>
-
         <h3>
           2 Dias Presenciais
         </h3>
-
         <p>
           Seminário intensivo com aulas teóricas,
           sessões práticas em pequenos grupos e
           treinos guiados por coaches da equipe oficial CrossFit.
           Depois, 8 dias para concluir a prova online de 50 questões.
         </p>
-
       </div>
-
-
       <div class="about-card">
-
         <span class="about-icon">
           🌍
         </span>
-
         <h3>
           Reconhecimento Mundial
         </h3>
-
         <p>
           Mais de 300 mil coaches já fizeram o CF-L1 —
           a credencial obrigatória para atuar em qualquer
           box afiliado CrossFit no mundo. Válida por 5 anos
           e ponto de partida para os níveis L2, L3 e L4.
         </p>
-
       </div>
-
-
       <div class="about-card">
-
         <span class="about-icon">
           💸
         </span>
-
         <h3>
           Investimento Real
         </h3>
-
         <p>
           O curso custa
           <strong style="color:var(--accent)">
@@ -2679,160 +1795,104 @@
           (~R$ 5.300) cobrado diretamente pela CrossFit LLC.
           A rifa vai cobrir parte desse valor e dar asas ao sonho do Gabriel!
         </p>
-
       </div>
-
-
     </div>
-
   </div>
-
 </section>
-
-
-
 <!-- ══════════════════════════════════════
      PRÊMIOS
 ══════════════════════════════════════ -->
-
 <section id="premios">
-
   <div class="container">
-
     <p class="section-label">
       Prêmios
     </p>
-
     <h2 class="section-title">
       PARTICIPE E CONCORRA
     </h2>
-
     <p class="section-sub">
       Além de ajudar o Gabriel a chegar ao CF-L1,
       você ainda pode levar um dos prêmios da campanha.
     </p>
-
-
     <div class="premios-grid">
-
-
       <div class="premio-card">
-
         <div class="premio-badge">
           🎁 PRÊMIO
         </div>
-
         <h3>
           1 mês de treino
         </h3>
-
         <p>
           Treine um mês completo na
         </p>
-
         <div class="premio-valor">
           Viamão Crossfit
         </div>
-
       </div>
-
-
       <div class="premio-card">
-
         <div class="premio-badge">
           🎁 PRÊMIO
         </div>
-
         <h3>
           Consulta nutricional
         </h3>
-
         <p>
           Consulta com nutricionista esportiva
           e CrossFit Level 1 Trainer
         </p>
-
         <div class="premio-valor">
           Aline Mambac
         </div>
-
       </div>
-
-
       <div class="premio-card">
-
         <div class="premio-badge">
           🎁 PRÊMIO
         </div>
-
         <h3>
           Ensaio fotográfico
         </h3>
-
         <p>
           Ensaio profissional do seu treino
           com fotógrafo especializado
         </p>
-
         <div class="premio-valor">
           Andherson Maeda
         </div>
-
       </div>
-
-
       <div class="premio-card">
-
         <div class="premio-badge">
           🎁 PRÊMIO
         </div>
-
         <h3>
           Vale consumo
         </h3>
-
         <p>
           R$80,00 para aproveitar no
         </p>
-
         <div class="premio-valor">
           2600 GASTROPUB
         </div>
-
       </div>
-
-
       <div class="premio-card destaque">
-
         <div class="premio-badge">
           🔥 BÔNUS
         </div>
-
         <h3>
           TOP Comprador
         </h3>
-
         <p>
           Quem adquirir mais números ganha
           R$200,00 em vale compras na:
         </p>
-
         <div class="premio-valor">
           Tika Soul Fit
         </div>
-
       </div>
-
-
     </div>
-
-
     <div class="top-compradores">
-
       <h3>
         TOP 3 COMPRADORES 🔥
       </h3>
-
       <div
         id="top-list"
         style="
@@ -2850,201 +1910,128 @@
           Carregando ranking...
         </div>
       </div>
-
     </div>
-
   </div>
-
 </section>
-
-
-
 <!-- ══════════════════════════════════════
      RIFA
 ══════════════════════════════════════ -->
-
 <section id="rifa">
-
   <div class="container">
-
     <p class="section-label">
       Rifa Solidária
     </p>
-
     <h2 class="section-title">
       ESCOLHA<br>
       SEUS NÚMEROS
     </h2>
-
     <p class="section-sub">
-
       Cada número custa
       <strong style="color:var(--accent)">
         R$15,00
       </strong>.
-
       <br>
-
       Selecione seus números e clique em
       <strong>
         Reservar números
       </strong>
       para iniciar sua participação.
-
     </p>
-
-
     <div class="rifa-controls">
-
       <button
         class="filter-btn active"
         onclick="filtrar('todos', this)"
       >
         Todos
       </button>
-
-
       <button
         class="filter-btn"
         onclick="filtrar('livre', this)"
       >
         Disponíveis
       </button>
-
-
       <button
         class="filter-btn"
         onclick="filtrar('reservado', this)"
       >
         Reservados
       </button>
-
-
       <button
         class="filter-btn"
         onclick="filtrar('confirmado', this)"
       >
         Confirmados
       </button>
-
-
       <input
         class="search-box"
         type="text"
         placeholder="🔍 Buscar número ou nome..."
         oninput="buscar(this.value)"
       >
-
     </div>
-
-
     <div id="numbers-container">
-
       <div class="loading-msg">
-
         <div class="loading-spinner"></div>
-
         <p>
           Carregando números...
         </p>
-
       </div>
-
     </div>
-
-
     <div class="rifa-summary">
-
-
       <div class="summary-chip">
-
         <span
           class="dot"
           style="background:#2F80ED"
         ></span>
-
         <span id="count-livre">
           — disponíveis
         </span>
-
       </div>
-
-
       <div class="summary-chip">
-
         <span
           class="dot"
           style="background:#F5A623"
         ></span>
-
         <span id="count-reservado">
           — reservados
         </span>
-
       </div>
-
-
       <div class="summary-chip">
-
         <span
           class="dot"
           style="background:#777"
         ></span>
-
         <span id="count-confirmado">
           — confirmados
         </span>
-
       </div>
-
-
       <div class="summary-chip">
-
         <span
           class="dot"
           style="background:#fff"
         ></span>
-
         <span id="count-valor">
           R$ 0 arrecadados
         </span>
-
       </div>
-
-
     </div>
-
   </div>
-
 </section>
-
-
-
 <!-- ══════════════════════════════════════
      PROGRESSO
 ══════════════════════════════════════ -->
-
 <section id="progresso">
-
   <div class="container">
-
     <p class="section-label">
       Meta da Arrecadação
     </p>
-
     <h2 class="section-title">
       CADA REAL<br>
       FAZ A DIFERENÇA
     </h2>
-
-
     <div class="progress-wrapper">
-
-
       <div class="progress-header">
-
         <div>
-
           <div
             style="
               font-size:12px;
@@ -3056,168 +2043,113 @@
           >
             Já arrecadamos
           </div>
-
           <div
             class="progress-amount"
             id="valor-arrecadado"
           >
             R$ 0
           </div>
-
         </div>
-
-
         <div class="progress-meta">
-
           Meta:
           <strong>
             R$ 5.300
           </strong>
-
           <br>
-
           <span id="percent-text">
             0% concluído
           </span>
-
         </div>
-
       </div>
-
-
       <div class="progress-bar-track">
-
         <div
           class="progress-bar-fill"
           id="progress-fill"
           style="width:0%"
         ></div>
-
       </div>
-
-
       <div class="progress-ticks">
-
         <span>R$ 0</span>
         <span>R$ 1000</span>
         <span>R$ 2000</span>
         <span>R$ 3000</span>
         <span>R$ 5250</span>
-
       </div>
-
-
       <div class="progress-goal">
-
-
         <div class="goal-item">
-
           <div class="label">
             Valor máximo da rifa
           </div>
-
           <div class="value">
             R$ 5.250
           </div>
-
           <div class="detail">
             350 números × R$ 15
           </div>
-
         </div>
-
-
         <div class="goal-item">
-
           <div class="label">
             Meta do curso
           </div>
-
           <div class="value">
             R$ 5.300
           </div>
-
           <div class="detail">
             CF-L1
           </div>
-
         </div>
-
-
         <div class="goal-item">
-
           <div class="label">
             Números restantes
           </div>
-
           <div
             class="value"
             id="restantes-goal"
           >
             350
           </div>
-
           <div class="detail">
             ainda disponíveis
           </div>
-
         </div>
-
-
       </div>
-
     </div>
-
-
-
     <!-- PIX -->
-
     <div class="pix-section">
-
       <span class="pix-icon">
         💙
       </span>
-
       <div class="pix-title">
         PREFERE APENAS AJUDAR?
       </div>
-
       <p class="pix-desc">
         Não precisa participar do sorteio para apoiar o Gabriel.
         Qualquer contribuição via Pix é muito bem-vinda
         e vai diretamente para o curso!
       </p>
-
-
       <div
         class="pix-key-box"
         onclick="copiarPix()"
       >
-
         <span
           class="pix-key-text"
           id="pix-chave"
         >
           SEU-PIX-AQUI
         </span>
-
         <button
           class="pix-copy-btn"
           type="button"
         >
           Copiar
         </button>
-
         <span
           class="pix-copied"
           id="pix-copied"
         >
           Copiado! ✓
         </span>
-
       </div>
-
-
       <p
         style="
           color:var(--muted);
@@ -3227,98 +2159,62 @@
       >
         Informe o nome no Pix para confirmarmos o recebimento 🤍
       </p>
-
     </div>
-
   </div>
-
 </section>
-
-
-
 <!-- ══════════════════════════════════════
      FOOTER
 ══════════════════════════════════════ -->
-
 <footer>
-
   <p>
-
     Cada número é um passo mais perto do sonho 💪
-
     <br>
-
     Obrigado por apoiar a jornada do
     <strong>Gabriel</strong>
     rumo ao CF-L1 ·
     <span id="footer-ano"></span>
-
   </p>
-
 </footer>
-
-
-
 <!-- ══════════════════════════════════════
      MODAL DE RESERVA
 ══════════════════════════════════════ -->
-
 <div
   class="modal-backdrop"
   id="modal"
   onclick="fecharModal(event)"
 >
-
   <div
     class="modal"
     onclick="event.stopPropagation()"
   >
-
-
     <div class="modal-header">
-
       <div class="modal-icon">
         🎟️
       </div>
-
       <h3>
         RESERVAR NÚMEROS
       </h3>
-
       <p class="modal-subtitle">
         Seus números ficarão reservados enquanto
         você realiza o pagamento e envia o comprovante.
       </p>
-
     </div>
-
-
     <div class="reservation-numbers">
-
       <div class="reservation-numbers-label">
         Números selecionados
       </div>
-
       <div id="modal-numeros">
         —
       </div>
-
-
       <div class="reservation-total">
-
         <span>
           Total da reserva
         </span>
-
         <strong id="modal-total">
           R$ 0,00
         </strong>
-
       </div>
-
     </div>
-
-
     <div
       class="modal-info"
     >
@@ -3327,25 +2223,18 @@
       Após realizar o Pix, envie o comprovante pelo WhatsApp
       do Gabriel. A confirmação será feita após a conferência.
     </div>
-
-
     <div
       id="modal-message"
       class="modal-message"
     ></div>
-
-
     <form
       id="reservation-form"
       onsubmit="confirmarReserva(event)"
     >
-
       <div class="form-group">
-
         <label for="nome-reserva">
           Seu nome
         </label>
-
         <input
           id="nome-reserva"
           class="form-input"
@@ -3355,16 +2244,11 @@
           required
           maxlength="100"
         >
-
       </div>
-
-
       <div class="form-group">
-
         <label for="telefone-reserva">
           WhatsApp
         </label>
-
         <input
           id="telefone-reserva"
           class="form-input"
@@ -3374,12 +2258,8 @@
           required
           maxlength="20"
         >
-
       </div>
-
-
       <div class="modal-actions">
-
         <button
           type="button"
           class="modal-btn modal-btn-cancel"
@@ -3387,8 +2267,6 @@
         >
           Voltar
         </button>
-
-
         <button
           type="submit"
           class="modal-btn modal-btn-confirm"
@@ -3396,172 +2274,104 @@
         >
           Confirmar reserva
         </button>
-
       </div>
-
     </form>
-
   </div>
-
 </div>
-
-
-
 <!-- ══════════════════════════════════════
      BARRA DE SELEÇÃO
 ══════════════════════════════════════ -->
-
 <div id="barra-selecao">
-
   <span id="qtd-selecionados">
     0 números
   </span>
-
-
   <span id="valor-selecionados">
     R$ 0,00
   </span>
-
-
   <button
     class="selection-button"
     onclick="abrirModalReserva()"
   >
     Reservar números
   </button>
-
 </div>
-
-
-
 <script>
-
-
 /* ══════════════════════════════════════
    CONFIGURAÇÃO
 ══════════════════════════════════════ */
-
 const SHEET_ID =
   '1nyzyQALUQohiG8ijo_AqDuO74V_FWM5yhlbr9bAEX_Y';
-
 const SHEET_NAME =
   'Rifa';
-
-
 /*
   A = Número
   B = Nome
   C = Status
 */
-
 const SHEET_RANGE =
   'A2:C351';
-
-
 const PIX_CHAVE =
   'AJUSTAR@gmail.com';
-
-
 const WHATSAPP_NUMERO =
   '5551998906677';
-
-
 /*
   Google Apps Script responsável por registrar
   as reservas na planilha.
 */
-
 const RESERVA_API_URL =
   'https://script.google.com/macros/s/AKfycbxAR58chaQBwRYHt-4VolQ_2Gy_-8UtYMIFkaSjZ9mLTURIFafx-8Y-2FCBSpb7YHaDgQ/exec';
-
-
 const VALOR_NUMERO = 15;
-
 const META_CURSO = 5300;
-
 const TOTAL_NUMEROS = 350;
-
-
-
 /* ══════════════════════════════════════
    ESTADO
 ══════════════════════════════════════ */
-
 let todosNumeros = [];
-
 let filtroAtivo = 'todos';
-
 let buscaTermo = '';
-
 let selecionados = [];
-
 let carregando = false;
-
-
-
 /* ══════════════════════════════════════
    INICIALIZAÇÃO
 ══════════════════════════════════════ */
-
 document.addEventListener(
   'DOMContentLoaded',
   () => {
-
     document.getElementById(
       'pix-chave'
     ).textContent = PIX_CHAVE;
-
-
     document.getElementById(
       'footer-ano'
     ).textContent =
       new Date().getFullYear();
-
-
     carregarDados();
-
   }
 );
-
-
-
 /*
   Atualiza a cada 30 segundos.
 */
-
 setInterval(
   () => {
-
     carregarDados();
-
   },
   30000
 );
-
-
-
 /* ══════════════════════════════════════
    NORMALIZA STATUS
 ══════════════════════════════════════ */
-
 function normalizarStatus(
   status,
   nome
 ) {
-
   const valor =
     String(status || '')
       .trim()
       .toUpperCase();
-
-
   if (
     valor === 'LIVRE'
   ) {
     return 'LIVRE';
   }
-
-
   if (
     valor === 'RESERVADO' ||
     valor === 'RESERVADA' ||
@@ -3569,8 +2379,6 @@ function normalizarStatus(
   ) {
     return 'RESERVADO';
   }
-
-
   if (
     valor === 'CONFIRMADO' ||
     valor === 'CONFIRMADA' ||
@@ -3581,73 +2389,45 @@ function normalizarStatus(
   ) {
     return 'CONFIRMADO';
   }
-
-
   /*
     Compatibilidade com a planilha antiga.
   */
-
   if (
     nome &&
     valor === ''
   ) {
     return 'CONFIRMADO';
   }
-
-
   return 'LIVRE';
-
 }
-
-
-
 /* ══════════════════════════════════════
    CARREGAR GOOGLE SHEETS
 ══════════════════════════════════════ */
-
 async function carregarDados() {
-
   if (carregando) {
     return;
   }
-
-
   carregando = true;
-
-
   try {
-
     const url =
       `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq` +
       `?tqx=out:json` +
       `&sheet=${encodeURIComponent(SHEET_NAME)}` +
       `&range=${SHEET_RANGE}` +
       `&_=${Date.now()}`;
-
-
     const res =
       await fetch(url);
-
-
     if (!res.ok) {
       throw new Error(
         `HTTP ${res.status}`
       );
     }
-
-
     const text =
       await res.text();
-
-
     const inicio =
       text.indexOf('{');
-
-
     const fim =
       text.lastIndexOf('}');
-
-
     if (
       inicio === -1 ||
       fim === -1
@@ -3656,8 +2436,6 @@ async function carregarDados() {
         'Resposta inválida do Google Sheets.'
       );
     }
-
-
     const json =
       JSON.parse(
         text.substring(
@@ -3665,29 +2443,18 @@ async function carregarDados() {
           fim + 1
         )
       );
-
-
     const rows =
       json.table?.rows || [];
-
-
     todosNumeros =
       rows
         .map(
           (row) => {
-
             const numeroBruto =
               row.c?.[0]?.v;
-
-
             const nomeBruto =
               row.c?.[1]?.v;
-
-
             const statusBruto =
               row.c?.[2]?.v;
-
-
             if (
               numeroBruto === undefined ||
               numeroBruto === null ||
@@ -3695,138 +2462,84 @@ async function carregarDados() {
             ) {
               return null;
             }
-
-
             const num =
               String(numeroBruto)
                 .replace('.0', '')
                 .padStart(2, '0');
-
-
             const nome =
               nomeBruto !== undefined &&
               nomeBruto !== null
                 ? String(nomeBruto).trim()
                 : '';
-
-
             const status =
               normalizarStatus(
                 statusBruto,
                 nome
               );
-
-
             return {
-
               num,
-
               nome,
-
               status,
-
               livre:
                 status === 'LIVRE',
-
               reservado:
                 status === 'RESERVADO',
-
               confirmado:
                 status === 'CONFIRMADO'
-
             };
-
           }
         )
         .filter(Boolean);
-
-
     removerSelecionadosIndisponiveis();
-
-
     renderizar();
-
-
   } catch (e) {
-
     console.warn(
       'Erro ao carregar planilha:',
       e
     );
-
-
     mostrarErroPlanilha(
       e
     );
-
-
     if (
       todosNumeros.length
     ) {
       renderizar();
     }
-
   } finally {
-
     carregando = false;
-
   }
-
 }
-
-
-
 /* ══════════════════════════════════════
    ERRO DA PLANILHA
 ══════════════════════════════════════ */
-
 function mostrarErroPlanilha(
   erro
 ) {
-
   const container =
     document.getElementById(
       'numbers-container'
     );
-
-
   if (
     todosNumeros.length
   ) {
     return;
   }
-
-
   container.innerHTML = '';
-
-
   const div =
     document.createElement(
       'div'
     );
-
-
   div.className =
     'error-banner';
-
-
   div.textContent =
     'Não foi possível carregar os números agora. ' +
     'Atualize a página ou tente novamente em alguns instantes.';
-
-
   container.appendChild(div);
-
 }
-
-
-
 /* ══════════════════════════════════════
    REMOVER SELEÇÕES INDISPONÍVEIS
 ══════════════════════════════════════ */
-
 function removerSelecionadosIndisponiveis() {
-
   const livres =
     new Set(
       todosNumeros
@@ -3837,52 +2550,34 @@ function removerSelecionadosIndisponiveis() {
           n => n.num
         )
     );
-
-
   selecionados =
     selecionados.filter(
       n => livres.has(n.num)
     );
-
 }
-
-
-
 /* ══════════════════════════════════════
    RENDERIZAÇÃO
 ══════════════════════════════════════ */
-
 function renderizar() {
-
   const container =
     document.getElementById(
       'numbers-container'
     );
-
-
   const livres =
     todosNumeros.filter(
       n => n.livre
     );
-
-
   const reservados =
     todosNumeros.filter(
       n => n.reservado
     );
-
-
   const confirmados =
     todosNumeros.filter(
       n => n.confirmado
     );
-
-
   const arrecadado =
     confirmados.length *
     VALOR_NUMERO;
-
-
   const pct =
     Math.min(
       100,
@@ -3890,32 +2585,22 @@ function renderizar() {
         (arrecadado / META_CURSO) * 100
       )
     );
-
-
   document.getElementById(
     'stat-vendidos'
   ).textContent =
     confirmados.length;
-
-
   document.getElementById(
     'count-livre'
   ).textContent =
     `${livres.length} disponíveis`;
-
-
   document.getElementById(
     'count-reservado'
   ).textContent =
     `${reservados.length} reservados`;
-
-
   document.getElementById(
     'count-confirmado'
   ).textContent =
     `${confirmados.length} confirmados`;
-
-
   document.getElementById(
     'count-valor'
   ).textContent =
@@ -3923,45 +2608,31 @@ function renderizar() {
       arrecadado
     ) +
     ' arrecadados';
-
-
   document.getElementById(
     'restantes-goal'
   ).textContent =
     livres.length;
-
-
   document.getElementById(
     'valor-arrecadado'
   ).textContent =
     formatarMoeda(
       arrecadado
     );
-
-
   document.getElementById(
     'percent-text'
   ).textContent =
     `${pct}% concluído`;
-
-
   document.getElementById(
     'progress-fill'
   ).style.width =
     `${pct}%`;
-
-
   document.getElementById(
     'faltam-banner'
   ).textContent =
     `Faltam apenas ${livres.length} números`;
-
-
   renderizarTopCompradores(
     confirmados
   );
-
-
   let lista =
     [...todosNumeros]
       .sort(
@@ -3969,221 +2640,149 @@ function renderizar() {
           Number(b.num) -
           Number(a.num)
       );
-
-
   if (
     filtroAtivo === 'livre'
   ) {
-
     lista =
       lista.filter(
         n => n.livre
       );
-
   }
-
-
   if (
     filtroAtivo === 'reservado'
   ) {
-
     lista =
       lista.filter(
         n => n.reservado
       );
-
   }
-
-
   if (
     filtroAtivo === 'confirmado'
   ) {
-
     lista =
       lista.filter(
         n => n.confirmado
       );
-
   }
-
-
   if (
     buscaTermo
   ) {
-
     const termo =
       buscaTermo.toLowerCase();
-
-
     lista =
       lista.filter(
         n =>
           n.num
             .toLowerCase()
             .includes(termo) ||
-
           n.nome
             .toLowerCase()
             .includes(termo)
       );
-
   }
-
-
   const grid =
     document.createElement(
       'div'
     );
-
-
   grid.className =
     'numbers-grid';
-
-
   if (
     lista.length === 0
   ) {
-
     const vazio =
       document.createElement(
         'div'
       );
-
-
     vazio.className =
       'loading-msg';
-
-
     vazio.style.gridColumn =
       '1 / -1';
-
-
     vazio.textContent =
       'Nenhum número encontrado.';
-
-
     grid.appendChild(
       vazio
     );
-
   }
-
-
   lista.forEach(
     n => {
-
       const card =
         document.createElement(
           'div'
         );
-
-
       card.className =
         `num-card ${n.status.toLowerCase()}`;
-
-
       if (
         selecionados.some(
           x =>
             x.num === n.num
         )
       ) {
-
         card.classList.add(
           'selected'
         );
-
       }
-
-
       const numero =
         document.createElement(
           'span'
         );
-
-
       numero.className =
         'num-num';
-
-
       numero.textContent =
         n.num;
-
-
       const nome =
         document.createElement(
           'span'
         );
-
-
       nome.className =
         'num-name';
-
-
       if (
         n.reservado
       ) {
-
         nome.textContent =
           'Aguardando pagamento';
-
       } else {
-
         nome.textContent =
           n.nome || '—';
-
       }
-
-
       const tag =
         document.createElement(
           'span'
         );
-
-
       tag.className =
         'num-tag';
+      if (n.livre) {
+  const estaSelecionado =
+    selecionados.some(
+      x => x.num === n.num
+    );
 
+  tag.textContent =
+    estaSelecionado
+      ? 'Selecionado'
+      : 'Livre';
 
-      if (
-        n.livre
-      ) {
+} else if (n.reservado) {
 
-        tag.textContent =
-          'Livre';
+  tag.textContent =
+    'Reservado';
 
-      } else if (
-        n.reservado
-      ) {
+} else {
 
-        tag.textContent =
-          'Reservado';
-
-      } else {
-
-        tag.textContent =
-          'Confirmado';
-
-      }
-
-
+  tag.textContent =
+    'Confirmado';
+}
       card.appendChild(
         numero
       );
-
       card.appendChild(
         nome
       );
-
       card.appendChild(
         tag
       );
-
-
       if (
         n.livre
       ) {
-
         card.addEventListener(
           'click',
           () =>
@@ -4192,58 +2791,35 @@ function renderizar() {
               card
             )
         );
-
       }
-
-
       grid.appendChild(
         card
       );
-
     }
   );
-
-
   container.innerHTML = '';
-
   container.appendChild(
     grid
   );
-
-
   atualizarBarraSelecao();
-
 }
-
-
-
 /* ══════════════════════════════════════
    TOP 3
 ══════════════════════════════════════ */
-
 function renderizarTopCompradores(
   confirmados
 ) {
-
   const contagem = {};
-
-
   confirmados.forEach(
     n => {
-
       const nome =
         n.nome ||
         'Anônimo';
-
-
       contagem[nome] =
         (contagem[nome] || 0) +
         1;
-
     }
   );
-
-
   const ranking =
     Object.entries(
       contagem
@@ -4256,199 +2832,123 @@ function renderizarTopCompradores(
         0,
         3
       );
-
-
   const topList =
     document.getElementById(
       'top-list'
     );
-
-
   topList.innerHTML = '';
-
-
   if (
     ranking.length === 0
   ) {
-
     const vazio =
       document.createElement(
         'div'
       );
-
-
     vazio.style.color =
       'var(--muted)';
-
-
     vazio.style.fontSize =
       '13px';
-
-
     vazio.textContent =
       'O ranking aparecerá após as primeiras confirmações.';
-
-
     topList.appendChild(
       vazio
     );
-
-
     return;
   }
-
-
   ranking.forEach(
     (item, index) => {
-
       const div =
         document.createElement(
           'div'
         );
-
-
       div.className =
         'top-item';
-
-
       const nome =
         document.createElement(
           'span'
         );
-
-
       nome.textContent =
         `${index + 1}º ${item[0]}`;
-
-
       const quantidade =
         document.createElement(
           'strong'
         );
-
-
       quantidade.textContent =
         `${item[1]} número${item[1] > 1 ? 's' : ''}`;
-
-
       div.appendChild(
         nome
       );
-
-
       div.appendChild(
         quantidade
       );
-
-
       topList.appendChild(
         div
       );
-
     }
   );
-
 }
-
-
-
 /* ══════════════════════════════════════
    SELEÇÃO DE NÚMEROS
 ══════════════════════════════════════ */
-
 function toggleNumero(
   numero,
   card
 ) {
-
   const atual =
     todosNumeros.find(
       n =>
         n.num === numero.num
     );
-
-
   if (
     !atual ||
     !atual.livre
   ) {
-
     return;
-
   }
-
-
   const index =
     selecionados.findIndex(
       x =>
         x.num === numero.num
     );
-
-
   if (
     index > -1
   ) {
-
     selecionados.splice(
       index,
       1
     );
-
-
     card.classList.remove(
       'selected'
     );
-
   } else {
-
     selecionados.push(
       numero
     );
-
-
     card.classList.add(
       'selected'
     );
-
   }
-
-
   atualizarBarraSelecao();
-
 }
-
-
-
 /* ══════════════════════════════════════
    BARRA DE SELEÇÃO
 ══════════════════════════════════════ */
-
 function atualizarBarraSelecao() {
-
   const barra =
     document.getElementById(
       'barra-selecao'
     );
-
-
   const qtd =
     selecionados.length;
-
-
   if (
     qtd > 0
   ) {
-
     barra.style.display =
       'flex';
-
-
     document.getElementById(
       'qtd-selecionados'
     ).textContent =
       `${qtd} número${qtd > 1 ? 's' : ''} selecionado${qtd > 1 ? 's' : ''}`;
-
-
     document.getElementById(
       'valor-selecionados'
     ).textContent =
@@ -4456,33 +2956,20 @@ function atualizarBarraSelecao() {
         qtd *
         VALOR_NUMERO
       );
-
   } else {
-
     barra.style.display =
       'none';
-
   }
-
 }
-
-
-
 /* ══════════════════════════════════════
    ABRIR MODAL
 ══════════════════════════════════════ */
-
 function abrirModalReserva() {
-
   if (
     !selecionados.length
   ) {
-
     return;
-
   }
-
-
   const numeros =
     selecionados
       .map(
@@ -4493,14 +2980,10 @@ function abrirModalReserva() {
           Number(a) -
           Number(b)
       );
-
-
   document.getElementById(
     'modal-numeros'
   ).textContent =
     numeros.join(', ');
-
-
   document.getElementById(
     'modal-total'
   ).textContent =
@@ -4508,41 +2991,27 @@ function abrirModalReserva() {
       selecionados.length *
       VALOR_NUMERO
     );
-
-
   esconderMensagemModal();
-
-
   document.getElementById(
     'modal'
   ).classList.add(
     'open'
   );
-
-
   setTimeout(
     () => {
-
       document.getElementById(
         'nome-reserva'
       ).focus();
-
     },
     100
   );
-
 }
-
-
-
 /* ══════════════════════════════════════
    FECHAR MODAL
 ══════════════════════════════════════ */
-
 function fecharModal(
   event
 ) {
-
   if (
     event &&
     event.target !==
@@ -4550,118 +3019,75 @@ function fecharModal(
         'modal'
       )
   ) {
-
     return;
-
   }
-
-
   document.getElementById(
     'modal'
   ).classList.remove(
     'open'
   );
-
 }
-
-
-
 /* ══════════════════════════════════════
    CONFIRMAR RESERVA
 ══════════════════════════════════════ */
-
 async function confirmarReserva(
   event
 ) {
-
   event.preventDefault();
-
-
   if (
     !selecionados.length
   ) {
-
     return;
-
   }
-
-
   const nome =
     document.getElementById(
       'nome-reserva'
     ).value.trim();
-
-
   const telefone =
     document.getElementById(
       'telefone-reserva'
     ).value.trim();
-
-
   if (
     !nome
   ) {
-
     mostrarMensagemModal(
       'Informe seu nome para continuar.',
       'error'
     );
-
     return;
-
   }
-
-
   if (
     !telefone
   ) {
-
     mostrarMensagemModal(
       'Informe seu WhatsApp para continuar.',
       'error'
     );
-
     return;
-
   }
-
-
   const numeros =
     selecionados.map(
       n => n.num
     );
-
-
   const botao =
     document.getElementById(
       'btn-confirmar-reserva'
     );
-
-
   botao.disabled =
     true;
-
-
   botao.textContent =
     'Reservando...';
-
-
   esconderMensagemModal();
-
-
   try {
-
     const resposta =
   await fetch(
     RESERVA_API_URL,
     {
       method: 'POST',
-
       headers: {
         'Content-Type':
           'text/plain;charset=utf-8'
       },
-
       body:
         JSON.stringify({
           numeros,
@@ -4670,32 +3096,21 @@ async function confirmarReserva(
         })
     }
   );
-
-
     if (
       !resposta.ok
     ) {
-
       throw new Error(
         `HTTP ${resposta.status}`
       );
-
     }
-
-
     const resultado =
       await resposta.json();
-
-
     if (
       !resultado.ok
     ) {
-
       const indisponiveis =
         resultado.indisponiveis ||
         [];
-
-
       const texto =
         indisponiveis.length
           ? `Os números ${indisponiveis.join(', ')} não estão mais disponíveis. Atualizamos a lista.`
@@ -4703,134 +3118,82 @@ async function confirmarReserva(
               resultado.message ||
               'Não foi possível concluir a reserva.'
             );
-
-
       mostrarMensagemModal(
         texto,
         'error'
       );
-
-
       await carregarDados();
-
-
       return;
-
     }
-
-
     mostrarMensagemModal(
       'Reserva criada! Abrindo o WhatsApp do Gabriel...',
       'success'
     );
-
-
     selecionados = [];
-
-
     await carregarDados();
-
-
     abrirWhatsApp(
       nome,
       telefone,
       numeros
     );
-
-
     setTimeout(
       () => {
-
         fecharModal();
-
         document.getElementById(
           'reservation-form'
         ).reset();
-
       },
       700
     );
-
-
   } catch (erro) {
-
     console.error(
       'ERRO AO RESERVAR:',
       erro
     );
-
     mostrarMensagemModal(
       `Erro: ${erro.message || erro}`,
       'error'
     );
-
-
   } finally {
-
     botao.disabled =
       false;
-
-
     botao.textContent =
       'Confirmar reserva';
-
   }
-
 }
-
-
-
 /* ══════════════════════════════════════
    WHATSAPP
 ══════════════════════════════════════ */
-
 function abrirWhatsApp(
   nome,
   telefone,
   numeros
 ) {
-
   const total =
     numeros.length *
     VALOR_NUMERO;
-
   const mensagem =
     `Oi Gabriel!\n\n` +
-
     `Acabei de reservar os números da rifa do Gabriel:\n\n` +
-
     `Números: ${numeros.join(', ')}\n` +
-
     `Total: ${formatarMoeda(total)}\n` +
-
     `Nome: ${nome}\n` +
-
     `WhatsApp: ${telefone}\n\n` +
-
     `Vou enviar o comprovante do Pix por aqui.`;
-
   window.open(
     `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensagem)}`,
     '_blank'
   );
-
 }
-
-
-
 /* ══════════════════════════════════════
    FILTROS
 ══════════════════════════════════════ */
-
 function filtrar(
   tipo,
   botao
 ) {
-
   filtroAtivo =
     tipo;
-
-
   document
     .querySelectorAll(
       '.filter-btn'
@@ -4841,102 +3204,60 @@ function filtrar(
           'active'
         )
     );
-
-
   if (
     botao
   ) {
-
     botao.classList.add(
       'active'
     );
-
   }
-
-
   renderizar();
-
 }
-
-
-
 /* ══════════════════════════════════════
    BUSCA
 ══════════════════════════════════════ */
-
 function buscar(
   valor
 ) {
-
   buscaTermo =
     valor.trim();
-
-
   renderizar();
-
 }
-
-
-
 /* ══════════════════════════════════════
    PIX
 ══════════════════════════════════════ */
-
 async function copiarPix() {
-
   const chave =
     document.getElementById(
       'pix-chave'
     ).textContent;
-
-
   try {
-
     await navigator.clipboard.writeText(
       chave
     );
-
   } catch (e) {
-
     const textarea =
       document.createElement(
         'textarea'
       );
-
-
     textarea.value =
       chave;
-
-
     document.body.appendChild(
       textarea
     );
-
-
     textarea.select();
-
-
     document.execCommand(
       'copy'
     );
-
-
     textarea.remove();
-
   }
-
-
   const el =
     document.getElementById(
       'pix-copied'
     );
-
-
   el.classList.add(
     'show'
   );
-
-
   setTimeout(
     () =>
       el.classList.remove(
@@ -4944,63 +3265,39 @@ async function copiarPix() {
       ),
     2000
   );
-
 }
-
-
-
 /* ══════════════════════════════════════
    MENSAGENS DO MODAL
 ══════════════════════════════════════ */
-
 function mostrarMensagemModal(
   mensagem,
   tipo
 ) {
-
   const el =
     document.getElementById(
       'modal-message'
     );
-
-
   el.textContent =
     mensagem;
-
-
   el.className =
     `modal-message show ${tipo}`;
-
 }
-
-
 function esconderMensagemModal() {
-
   const el =
     document.getElementById(
       'modal-message'
     );
-
-
   el.className =
     'modal-message';
-
-
   el.textContent =
     '';
-
 }
-
-
-
 /* ══════════════════════════════════════
    FORMATAÇÃO DE MOEDA
 ══════════════════════════════════════ */
-
 function formatarMoeda(
   valor
 ) {
-
   return Number(valor)
     .toLocaleString(
       'pt-BR',
@@ -5009,32 +3306,20 @@ function formatarMoeda(
         currency: 'BRL'
       }
     );
-
 }
-
-
-
 /* ══════════════════════════════════════
    ESC — FECHAR MODAL
 ══════════════════════════════════════ */
-
 document.addEventListener(
   'keydown',
   event => {
-
     if (
       event.key === 'Escape'
     ) {
-
       fecharModal();
-
     }
-
   }
 );
-
-
 </script>
-
 </body>
 </html>
