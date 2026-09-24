@@ -890,6 +890,9 @@
       );
 
     gap: 8px;
+
+    /* Espaço para a barra fixa de seleção */
+    padding-bottom: 90px;
   }
 
 
@@ -1280,16 +1283,16 @@
   #barra-selecao {
     position: fixed;
 
-    bottom: 20px;
+    bottom: 24px;
 
     left: 50%;
 
     transform: translateX(-50%);
 
-    background: #111;
+    background: rgba(17,17,17,0.97);
 
     border:
-      1px solid rgba(255,255,255,0.1);
+      1px solid rgba(47,128,237,0.35);
 
     border-radius: 100px;
 
@@ -1301,13 +1304,18 @@
 
     gap: 16px;
 
-    z-index: 999;
+    z-index: 100;
 
     box-shadow:
-      0 12px 40px rgba(0,0,0,0.5);
+      0 12px 40px rgba(0,0,0,0.55),
+      0 0 30px rgba(47,128,237,0.12);
 
     max-width:
       calc(100vw - 32px);
+
+    margin-bottom: 0;
+
+    backdrop-filter: blur(12px);
   }
 
 
@@ -2267,7 +2275,14 @@
       width: 100%;
     }
 
+    /*
+      Barra de seleção no celular.
+      Fica acima da borda inferior da tela
+      e não cobre os últimos números.
+    */
     #barra-selecao {
+      bottom: 12px;
+
       border-radius: 18px;
 
       width:
@@ -2278,6 +2293,15 @@
       justify-content: space-between;
 
       gap: 8px;
+
+      z-index: 100;
+    }
+
+    /*
+      Espaço adicional para a barra fixa.
+    */
+    .numbers-grid {
+      padding-bottom: 100px;
     }
 
     #valor-selecionados {
@@ -3425,15 +3449,9 @@ const SHEET_NAME =
 
 
 /*
-  Agora lemos A, B e C:
-
   A = Número
   B = Nome
   C = Status
-
-  O HTML também aceita a planilha antiga:
-  se C estiver vazio e B tiver nome,
-  considera CONFIRMADO.
 */
 
 const SHEET_RANGE =
@@ -3449,40 +3467,17 @@ const WHATSAPP_NUMERO =
 
 
 /*
-  IMPORTANTE:
-
-  Esta URL será preenchida quando criarmos
-  o Google Apps Script responsável por gravar
-  as reservas.
-
-  Exemplo:
-
-  const RESERVA_API_URL =
-    'https://script.google.com/macros/s/AKfycbxAR58chaQBwRYHt-4VolQ_2Gy_-8UtYMIFkaSjZ9mLTURIFafx-8Y-2FCBSpb7YHaDgQ/exec';
-
-  Por enquanto deixe vazio.
+  Google Apps Script responsável por registrar
+  as reservas na planilha.
 */
 
-const RESERVA_API_URL = '';
+const RESERVA_API_URL =
+  'https://script.google.com/macros/s/AKfycbxAR58chaQBwRYHt-4VolQ_2Gy_-8UtYMIFkaSjZ9mLTURIFafx-8Y-2FCBSpb7YHaDgQ/exec';
 
-
-/*
-  Valor de cada número.
-*/
 
 const VALOR_NUMERO = 15;
 
-
-/*
-  Meta do curso.
-*/
-
 const META_CURSO = 5300;
-
-
-/*
-  Quantidade total da rifa.
-*/
 
 const TOTAL_NUMEROS = 350;
 
@@ -3589,10 +3584,7 @@ function normalizarStatus(
 
 
   /*
-    Compatibilidade com a planilha antiga:
-
-    B preenchido + C vazio
-    = confirmado.
+    Compatibilidade com a planilha antiga.
   */
 
   if (
@@ -3647,15 +3639,6 @@ async function carregarDados() {
     const text =
       await res.text();
 
-
-    /*
-      Google Visualization retorna
-      um JSON envolvido por texto.
-
-      Exemplo:
-
-      google.visualization.Query.setResponse(...)
-    */
 
     const inicio =
       text.indexOf('{');
@@ -3758,13 +3741,6 @@ async function carregarDados() {
         .filter(Boolean);
 
 
-    /*
-      Se a planilha ainda estiver A:B,
-      os números preenchidos continuam funcionando
-      como CONFIRMADOS.
-    */
-
-
     removerSelecionadosIndisponiveis();
 
 
@@ -3783,12 +3759,6 @@ async function carregarDados() {
       e
     );
 
-
-    /*
-      Não apagamos os dados antigos.
-      Se a atualização falhar, o site continua
-      mostrando o último estado conhecido.
-    */
 
     if (
       todosNumeros.length
@@ -3852,7 +3822,7 @@ function mostrarErroPlanilha(
 
 
 /* ══════════════════════════════════════
-   REMOVER SELEÇÕES QUE DEIXARAM DE SER LIVRES
+   REMOVER SELEÇÕES INDISPONÍVEIS
 ══════════════════════════════════════ */
 
 function removerSelecionadosIndisponiveis() {
@@ -3890,10 +3860,6 @@ function renderizar() {
     );
 
 
-  /*
-    Estatísticas
-  */
-
   const livres =
     todosNumeros.filter(
       n => n.livre
@@ -3912,24 +3878,10 @@ function renderizar() {
     );
 
 
-  /*
-    IMPORTANTE:
-
-    Reserva não entra na arrecadação.
-
-    Só CONFIRMADO conta como dinheiro recebido.
-  */
-
   const arrecadado =
     confirmados.length *
     VALOR_NUMERO;
 
-
-  /*
-    A meta do curso é R$ 5.300.
-
-    A rifa inteira gera R$ 5.250.
-  */
 
   const pct =
     Math.min(
@@ -3940,19 +3892,11 @@ function renderizar() {
     );
 
 
-  /*
-    Estatísticas do topo
-  */
-
   document.getElementById(
     'stat-vendidos'
   ).textContent =
     confirmados.length;
 
-
-  /*
-    Resumo
-  */
 
   document.getElementById(
     'count-livre'
@@ -3981,10 +3925,6 @@ function renderizar() {
     ' arrecadados';
 
 
-  /*
-    Progresso
-  */
-
   document.getElementById(
     'restantes-goal'
   ).textContent =
@@ -4011,29 +3951,16 @@ function renderizar() {
     `${pct}%`;
 
 
-  /*
-    Banner principal
-  */
-
   document.getElementById(
     'faltam-banner'
   ).textContent =
     `Faltam apenas ${livres.length} números`;
 
 
-  /*
-    TOP 3
-    SOMENTE CONFIRMADOS
-  */
-
   renderizarTopCompradores(
     confirmados
   );
 
-
-  /*
-    Lista dos números
-  */
 
   let lista =
     [...todosNumeros]
@@ -4103,10 +4030,6 @@ function renderizar() {
   }
 
 
-  /*
-    Grid
-  */
-
   const grid =
     document.createElement(
       'div'
@@ -4155,18 +4078,9 @@ function renderizar() {
         );
 
 
-      /*
-        Classe visual conforme status.
-      */
-
       card.className =
         `num-card ${n.status.toLowerCase()}`;
 
-
-      /*
-        Se estiver selecionado,
-        adiciona destaque.
-      */
 
       if (
         selecionados.some(
@@ -4182,10 +4096,6 @@ function renderizar() {
       }
 
 
-      /*
-        Número
-      */
-
       const numero =
         document.createElement(
           'span'
@@ -4199,18 +4109,6 @@ function renderizar() {
       numero.textContent =
         n.num;
 
-
-      /*
-        Nome/status visual
-
-        Para reservado mostramos
-        "Aguardando pagamento"
-        em vez do nome do comprador.
-
-        Isso evita expor desnecessariamente
-        o nome enquanto a reserva ainda
-        não foi confirmada.
-      */
 
       const nome =
         document.createElement(
@@ -4236,10 +4134,6 @@ function renderizar() {
 
       }
 
-
-      /*
-        Tag
-      */
 
       const tag =
         document.createElement(
@@ -4285,10 +4179,6 @@ function renderizar() {
         tag
       );
 
-
-      /*
-        Somente LIVRE pode ser selecionado.
-      */
 
       if (
         n.livre
@@ -4471,11 +4361,6 @@ function toggleNumero(
   card
 ) {
 
-  /*
-    Segurança adicional:
-    só permite selecionar se ainda estiver LIVRE.
-  */
-
   const atual =
     todosNumeros.find(
       n =>
@@ -4584,7 +4469,7 @@ function atualizarBarraSelecao() {
 
 
 /* ══════════════════════════════════════
-   ABRIR MODAL DE RESERVA
+   ABRIR MODAL
 ══════════════════════════════════════ */
 
 function abrirModalReserva() {
@@ -4597,10 +4482,6 @@ function abrirModalReserva() {
 
   }
 
-
-  /*
-    Atualiza números no modal.
-  */
 
   const numeros =
     selecionados
@@ -4629,16 +4510,8 @@ function abrirModalReserva() {
     );
 
 
-  /*
-    Limpa mensagens anteriores.
-  */
-
   esconderMensagemModal();
 
-
-  /*
-    Abre.
-  */
 
   document.getElementById(
     'modal'
@@ -4646,10 +4519,6 @@ function abrirModalReserva() {
     'open'
   );
 
-
-  /*
-    Foco no nome.
-  */
 
   setTimeout(
     () => {
@@ -4757,40 +4626,10 @@ async function confirmarReserva(
   }
 
 
-  /*
-    Guarda os números antes de qualquer operação.
-  */
-
   const numeros =
     selecionados.map(
       n => n.num
     );
-
-
-  /*
-    Caso o backend ainda não esteja configurado,
-    mantemos o fluxo antigo de WhatsApp.
-
-    Isso permite publicar o HTML antes do Apps Script,
-    sem quebrar o site.
-
-    Quando RESERVA_API_URL estiver preenchida,
-    esta parte deixa de ser utilizada.
-  */
-
-  if (
-    !RESERVA_API_URL
-  ) {
-
-    abrirWhatsAppSemBackend(
-      nome,
-      telefone,
-      numeros
-    );
-
-    return;
-
-  }
 
 
   const botao =
@@ -4850,11 +4689,6 @@ async function confirmarReserva(
       await resposta.json();
 
 
-    /*
-      Backend informa que algum número
-      já foi reservado/confirmado.
-    */
-
     if (
       !resultado.ok
     ) {
@@ -4879,10 +4713,6 @@ async function confirmarReserva(
       );
 
 
-      /*
-        Atualiza a planilha imediatamente.
-      */
-
       await carregarDados();
 
 
@@ -4891,19 +4721,11 @@ async function confirmarReserva(
     }
 
 
-    /*
-      Reserva criada.
-    */
-
     mostrarMensagemModal(
       'Reserva criada! Abrindo o WhatsApp do Gabriel...',
       'success'
     );
 
-
-    /*
-      Atualiza a lista.
-    */
 
     selecionados = [];
 
@@ -4911,20 +4733,12 @@ async function confirmarReserva(
     await carregarDados();
 
 
-    /*
-      Abre WhatsApp.
-    */
-
     abrirWhatsApp(
       nome,
       telefone,
       numeros
     );
 
-
-    /*
-      Fecha o modal depois de um pequeno intervalo.
-    */
 
     setTimeout(
       () => {
@@ -4970,7 +4784,7 @@ async function confirmarReserva(
 
 
 /* ══════════════════════════════════════
-   WHATSAPP — BACKEND CONFIGURADO
+   WHATSAPP
 ══════════════════════════════════════ */
 
 function abrirWhatsApp(
@@ -5000,72 +4814,9 @@ function abrirWhatsApp(
     `Vou enviar o comprovante do Pix por aqui.`;
 
 
-
   window.open(
     `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensagem)}`,
     '_blank'
-  );
-
-}
-
-
-
-/* ══════════════════════════════════════
-   WHATSAPP — BACKEND AINDA NÃO CONFIGURADO
-══════════════════════════════════════ */
-
-function abrirWhatsAppSemBackend(
-  nome,
-  telefone,
-  numeros
-) {
-
-  /*
-    Por enquanto:
-
-    - não fingimos que a reserva foi gravada;
-    - avisamos que o sistema de reserva automática
-      ainda não está conectado;
-    - abrimos o WhatsApp para manter o site funcional.
-  */
-
-  mostrarMensagemModal(
-    'A reserva automática ainda está sendo configurada. Vamos continuar pelo WhatsApp.',
-    'success'
-  );
-
-
-  const total =
-    numeros.length *
-    VALOR_NUMERO;
-
-
-  const mensagem =
-    `Oi Gabriel! 👋\n\n` +
-
-    `Quero reservar estes números da rifa:\n\n` +
-
-    `🎟️ Números: ${numeros.join(', ')}\n` +
-
-    `💰 Total: ${formatarMoeda(total)}\n` +
-
-    `👤 Nome: ${nome}\n` +
-
-    `📱 WhatsApp: ${telefone}\n\n` +
-
-    `Vou enviar o comprovante do Pix por aqui.`;
-
-
-  setTimeout(
-    () => {
-
-      window.open(
-        `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensagem)}`,
-        '_blank'
-      );
-
-    },
-    400
   );
 
 }
@@ -5151,11 +4902,6 @@ async function copiarPix() {
     );
 
   } catch (e) {
-
-    /*
-      Fallback para navegadores
-      que bloquearem clipboard.
-    */
 
     const textarea =
       document.createElement(
