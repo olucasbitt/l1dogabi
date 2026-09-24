@@ -4756,13 +4756,12 @@ async function confirmarReserva(
   } catch (erro) {
 
     console.error(
-      'Erro ao reservar:',
+      'ERRO AO RESERVAR:',
       erro
     );
 
-
     mostrarMensagemModal(
-      'Não foi possível registrar a reserva agora. Tente novamente em alguns instantes.',
+      `Erro: ${erro.message || erro}`,
       'error'
     );
 
